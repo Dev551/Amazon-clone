@@ -1,4 +1,6 @@
-const onRequest = require("firebase-functions/v2/https/onRequest");
+const { onRequest } = require("firebase-functions/v2/https");
+const { setGlobalOptions } = require("firebase-functions/v2");
+setGlobalOptions({ maxInstances: 10 });
 const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")(
@@ -36,8 +38,7 @@ app.post("/payments/create", async (request, response) => {
   });
 });
 
-// - Listen command
-exports.api = onRequest(app);
-
 // Example of Endpoints
 //  http://127.0.0.1:5001/clone-acec2/us-central1/api
+// - Listen command
+exports.api = onRequest(app);

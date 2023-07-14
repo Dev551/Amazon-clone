@@ -22,7 +22,7 @@ const promise = loadStripe(
   "pk_test_51NRCsaSHDfdRTEQWylUvpuo8uxY2kT4l26IwGZebPfWWkTn7a9lqzqj5FjMrNTjM1PuMgOeGXMAScOJcr361lFda00eshYxDec"
 );
 
-function App() {
+const App = () => {
   const [{}, dispatch] = useStateValue();
   const auth = getAuth();
 
@@ -100,7 +100,7 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
 // calcirol sachet
